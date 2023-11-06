@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/browse/normalize.css@8.0.1/normalize.css">
+    <link rel="stylesheet" href="e29-styles.css">
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="logo"><a href="../index.html"">
+        <span class="e29_wordmark">Element 29.</span>
+        <span class="e29_subtitle">Fine & Functional Art by Ben Rossi</span>
+      </a></h1>
+      <ul class="main-nav">
+        <li><a href="../index.html">About</a></li>
+        <li><a href="../artwork.html">Artwork</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </header>
+    <main>
+      <div class="content contact">
+        <h1>Let's chat!</h1>
+        <p>Please drop me a line if you are interested in purchasing an artwork, to discuss a commission or collaboration, or if you have any questions.</p>
+        <form class="contact_form" action="https://api.web3forms.com/submit" method="POST">
+
+          <input type="hidden" name="access_key" value="13a1f9f7-7c0b-47f6-92dc-15c739bedb7e">
+
+          <label for="name">Your name</label>
+          <input type="text" name="name" required>
+          <label for="email">Your email address</label>
+          <input type="email" name="email" required>
+          <label for="message">How can I help?</label>
+          <textarea name="message" required></textarea>
+          <div class="h-captcha" data-captcha="true"></div>
+          <input type="hidden" name="redirect" value="https://element29.co/thanks.html">
+          <button type="submit">Submit Form</button>
+
+        </form>
+      </div>
+    </main>
+
+    <footer class="copyright">
+      <div>&copy; 2023 Ben Rossi. All rights reserved.</div>
+    </footer>
+
+
+  </body>
+</html>
+
+
