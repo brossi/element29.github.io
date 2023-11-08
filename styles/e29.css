@@ -1,0 +1,150 @@
+.col_b {
+  background-color: blue;
+}
+
+.col_a {
+  background-color: red;
+}
+
+.col_c {
+  background-color: green;
+}
+
+.col_d {
+  background-color: yellow;
+}
+
+.col_e {
+  background-color: orange;
+}
+
+.col_f {
+  background-color: purple;
+}
+
+@font-face {
+  font-family: "PlantagenetCherokee";
+  src: url("fonts/PlantagenetCherokee.woff2") format("woff2-variations"), url("fonts/PlantagenetCherokee.ttf") format("truetype");
+}
+html, body {
+  background-color: #d1cfcc;
+  color: #592418;
+  font-family: "PlantagenetCherokee", serif;
+}
+
+header.e29nav .e29_wordmark h1 {
+  padding-top: 0.75em;
+  padding-bottom: 0;
+  margin: 0;
+}
+header.e29nav .e29_wordmark h2 {
+  font-size: 1em;
+  color: #72453b;
+}
+header.e29nav .e29_wordmark h2 span {
+  position: relative;
+  padding-bottom: 0.5em;
+}
+header.e29nav .e29_wordmark h2 span:after {
+  position: absolute;
+  left: -15%;
+  bottom: 0;
+  width: 130%;
+  height: 1px;
+  border-bottom: 2.5px double #A66A5D;
+  content: "";
+}
+header.e29nav a.btn-link {
+  color: #592418;
+  margin-bottom: 0.5em;
+}
+header.e29nav a.btn-link:hover {
+  color: #4c1f14;
+  text-decoration: underline;
+}
+header.e29nav a.btn-link:visited {
+  color: #592418;
+}
+
+.hero.artHero {
+  background-image: url(../images/2023_fall_hero_alt.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  padding: 0;
+  margin: 0;
+}
+
+.artHero_overlay {
+  width: 100vw;
+  height: 3em;
+  background: linear-gradient(#d1cfcc 0%, rgba(0, 0, 0, 0) 35%);
+}
+
+.about {
+  background-color: #8d5a4f;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  color: #f4f3f2;
+}
+.about img {
+  padding: 0;
+}
+.about .bio {
+  padding: 2em 4.5em;
+}
+.about .bio button.galleryCTA {
+  padding: 0.5em 1em 0;
+  border: 1px solid #592418;
+  border-radius: 0.25em;
+  background-color: #F27405;
+  color: #592418;
+}
+
+.preview {
+  background-color: #F27405;
+}
+
+.artistCover {
+  background-image: url(../images/event_solo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  position: relative;
+}
+.artistCover .label {
+  display: inline;
+  position: absolute;
+  bottom: 0.5em;
+  right: 1em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.contact_form {
+  text-align: left;
+}
+.contact_form .form-label {
+  padding-top: 1em;
+  padding-bottom: 0;
+}
+.contact_form .form-label:first-child {
+  padding-top: 0;
+}
+
+.column.contact {
+  padding: 4em 3.5em 4em 2em;
+  text-align: left;
+  font-family: "PlantagenetCherokee", serif;
+}
+
+footer.main {
+  padding: 1em;
+}
+footer.main .copyright {
+  font-size: 0.875em;
+  font-style: italic;
+}

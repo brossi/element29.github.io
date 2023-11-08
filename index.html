@@ -1,33 +1,143 @@
-<!DOCTYPE html>
-<html data-theme="light">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/browse/normalize.css@8.0.1/normalize.css">
-    <link rel="stylesheet" href="e29-styles.css">
-  </head>
-  <body>
-    <header class="header">
-      <h1 class="logo"><a href="../index.html"">
-        <span class="e29_wordmark">Element 29.</span>
-        <span class="e29_subtitle">Fine & Functional Art by Ben Rossi</span>
-      </a></h1>
-      <ul class="main-nav">
-        <li><a href="../index.html">About</a></li>
-        <li><a href="../artwork.html">Artwork</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-      </ul>
-    </header>
-    <main>
-      <div class="content">
-        <p>My art blends mixed materials, chemical reactions, and imagination. When inspired, I create dynamic abstractions for your walls, musical instruments to play with your friends, and physical structures where dramatic artists perform for you.</p>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Element 29 | Fine & Functional Art by Ben Rossi</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" href="styles/spectre.css">
+  <link rel="stylesheet" href="styles/e29.css">
+</head>
+<body class="text-center">
+  <header class="e29nav">
+    <div class="columns">
+      <div class="column e29_wordmark">
+        <h1 class="">Element 29</h1>
+        <h2><span>Fine & functional art by Ben Rossi<span></h2>
       </div>
-    </main>
-    <footer class="copyright">
-      <div>&copy; 2023 Ben Rossi. All rights reserved.</div>
-    </footer>
+    </div>
+    <div class="columns">
+      <div class="column">&nbsp;</div>
+      <div class="column col-auto">
+        <a href="#" class="btn btn-link">Home</a>
+        <a href="artwork.html" class="btn btn-link">Artwork</a>
+        <a href="#contact" class="btn btn-link">Contact</a>
+      </div>
+      <div class="column">&nbsp;</div>
+    </div>
+  </header>
 
-  </body>
+  <!-- Hero -->
+  <section class="hero artHero">
+    <div class="artHero_overlay"></div>
+    <div class="hero-body">
+    </div>
+  </section>
+
+  <!-- Artwork -->
+	<section class="aboutWrapper">
+    <div class="columns">
+      <div class="column col-6 about">
+          <div class="bio">
+            <h3>Welcome!</h3>
+            <p>I'm a multidisciplinary artist based in Northern Virginia. My paintings, sculptures, and "beautiful baubles" are blends of mixed materials, chemical reactions, and imagination. I also create functional art, including musical instruments, furniture, and theatrical scenary and props.</p>
+            <p>I enjoy working with people to create custom pieces that are unique to their tastes and needs. I'm always on the lookout for opportunities to collaborate with other artists and makers.</p>
+            <p>
+              <button class="btn btn-large galleryCTA">View currently available artworks</button>
+            </p>
+          </div>
+
+        </div>
+        <div class="column col-6 artistCover">
+          <span class="label">Ben at the Merrimaker's Marketplace, October 2023</span>
+        </div>
+      </div>
+    </div>
+	</section>
+
+  <!-- Contact Form -->
+	<section class="" id="contact">
+    <div class="columns">
+      <div class="column col-7">
+        <img src="images/2022_babylon-wall.png" alt="Wall installation of faux plants, natural materials, and stainless steel wire cloth. 'Babylon' by Ben Rossi, 2022." class="img-responsive"/>
+      </div>
+      <div class="column col-5 contact">
+        <h3>Let's chat!</h3>
+        <p>Please drop me a line if you are interested in purchasing an artwork, to discuss a commission or collaboration, or if you have any questions.</p>
+        <form class="contact_form" method="POST" id="form">
+
+          <input type="hidden" name="access_key" value="13a1f9f7-7c0b-47f6-92dc-15c739bedb7e">
+
+          <div class="form-group">
+            <label class="form-label" for="name">Your name</label>
+            <input class="form-input" type="text" id="cf_name" placeholder="Name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email address</label>
+            <input class="form-input" type="text" id="cf_email" placeholder="Email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">How can I help you?</label>
+            <textarea class="form-input" id="cf_contactMessage" placeholder="Message" rows="5" name="message" required></textarea>
+          </div>
+          <div class="h-captcha" data-captcha="true"></div>
+          <button type="submit">Send to Ben</button>
+          <div id="result"></div>
+        </form>
+      </div>
+    </div>
+	</section>
+
+  <!-- Footer -->
+  <footer class="main">
+    <div class="columns">
+      <div class="column copyright">
+        &copy; 2018&ndash;2023 Ben Rossi. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <script defer data-domain="element29.art" src="https://plausible.io/js/script.js"></script>
+  <script>
+    // Contact Form Submission
+    const form = document.getElementById('form');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+      result.innerHTML = "Please wait..."
+
+        fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = json.message;
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+            })
+            .then(function() {
+                form.reset();
+                setTimeout(() => {
+                    result.style.display = "none";
+                }, 10000);
+            });
+    });
+  </script>
+</body>
 </html>
-
-
