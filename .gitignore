@@ -3,6 +3,8 @@
 .AppleDouble
 .LSOverride
 
+config.codekit3
+
 # Icon must end with two \r
 Icon
 
@@ -24,3 +26,4 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+

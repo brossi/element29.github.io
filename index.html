@@ -9,61 +9,97 @@
 	<link rel="stylesheet" href="styles/spectre.css">
   <link rel="stylesheet" href="styles/e29.css">
 </head>
-<body class="text-center">
-  <header class="e29nav">
-    <div class="columns">
-      <div class="column e29_wordmark">
-        <h1 class="">Element 29</h1>
-        <h2><span>Fine & functional art by Ben Rossi<span></h2>
-      </div>
-    </div>
-    <div class="columns">
-      <div class="column">&nbsp;</div>
-      <div class="column col-auto">
-        <a href="#" class="btn btn-link">Home</a>
-        <a href="artwork.html" class="btn btn-link">Artwork</a>
-        <a href="#contact" class="btn btn-link">Contact</a>
-      </div>
-      <div class="column">&nbsp;</div>
-    </div>
+<body class="container grid-xl">
+
+  <header class="navbar">
+    <section class="brandBlock">
+      <h2>Element 29.</h2>
+      <h1 class="flame-text">Fine & Functional Art by Ben Rossi</h1>
+    </section>
+    <section class="navbar-section menu__links hide-sm">
+      <a href="artwork.html" class="btn btn-link">Artwork</a>
+      <a href="#contact_modal" class="btn btn-link">Contact</a>
+    </section>
   </header>
 
-  <!-- Hero -->
-  <section class="hero artHero">
-    <div class="artHero_overlay"></div>
-    <div class="hero-body">
-	<span class="label"><span style="text-style: italic;">Fall</span>. Mixed media painting, 2023.</span>
+  <div class="carousel">
+    <div class="fadein">
+        <img src="images/2023_cosmic-hero.jpg" class="img-responsive"/>
+        <img src="images/2023_molten-hero.jpg" class="img-responsive"/>
+        <img src="images/2022_babylon-wall-hero.jpg" class="img-responsive"/>
+        <img src="images/2010s-untitiled_canvas-hero.jpg" class="img-responsive"/>
+        <img src="images/2023_stretching-hero.jpg" class="img-responsive"/>
+        <img src="images/2023_magick-hero.jpg" class="img-responsive"/>
     </div>
+  </div>
+
+  <section class="columns">
+    <div class="column col-6 col-md-12">
+      <div class="stdPad">
+        <p>It is fair to say that each piece of my artwork begins with the same question:</p>
+        <h3 class="heroQuestion">&ldquo;What happens if?&rdquo;</h3>
+        <p>I find the question to be an everlasting font of ideas, new techniques, and no small amount of "oh&hellip;that didn't work" movements. It's this question and all of the others that it invites into my brain that keeps me coming back to my studio, day after day.</p>
+        <p>As an interdisciplinary artist based in Northern Virginia, I explore my internal and external worlds through colors, textures, patterns, and phenomena. My paintings, sculptures, instruments, environments, and crafted objects blend natural and synthetic materials and give form to the answers I discover.</p>
+        <button class="btn btn-large galleryCTA"><a href="artwork.html">Explore my artwork</a></button>
+        <div class="mobile__spacer">&nbsp;</div>
+        <p class="contact_note hide-sm">If you are interested in purchasing an artwork, would liked to discuss commissioning a custom piece, or if you think we should collaborate on a project, <a href="#contact_modal">send me a note!</a></p>
+      </div>
+    </div>
+    <div class="column col-6 col-md-12">
+      <img src="/images/event_solo.jpg" alt="Ben at the Merrymaker's Marketplace, October 2023. Photo by " class="img-responsive" />
+      <img src="/images/event_magick-overhead.jpg" alt="Overhead view of three painted concrete mushrooms from Ben's &ldquo;Magick&rdquo; series. 2023" class="img-responsive tablet_img">
   </section>
 
-  <!-- Artwork -->
-	<section class="aboutWrapper">
-    <div class="columns">
-      <div class="column col-6 col-xs-12 about">
-          <div class="bio">
-            <h3>Welcome!</h3>
-            <p>I'm a multidisciplinary artist based in Northern Virginia. My paintings, sculptures, and "beautiful baubles" are blends of mixed materials, chemical reactions, and imagination. I also create functional art, including musical instruments, furniture, and theatrical scenery and props.</p>
-            <p>I enjoy working with people to create custom pieces that are unique to their tastes and needs. I'm always on the lookout for opportunities to collaborate with other artists and makers.</p>
+  <div id="contact_modal" class="">
+    <div class="modal__window">
+      <div class="modal__header">
+        <h2>Contact</h2>
+        <a class="modal__close" href="#">CLOSE</a>
+      </div>
+      <div class="columns">
+        <div class="column col-4 contactDetails">
+          <div class="contactDetails__separator">
+            <h5>BEN ROSSI</h5>
             <p>
-              <a href="artwork.html"><button class="btn btn-large galleryCTA">View available artworks</button></a>
+              Northern Virginia, U.S.A.<br/>
+              Email: ben@element29.co<br/>
+              Instagram: @element29.art
             </p>
-	    <h4>Follow me on Instagram <a href="https://www.instagram.com/element29.art/" style="color: #ffffff;">@element29.art</a></h4>
           </div>
-
         </div>
-        <div class="column col-6 col-xs-12 artistCover" style="max-width: 100%; background-position: right;">
-          <span class="label">Ben at the Merrymaker's Marketplace, October 2023</span>
+        <div class="column col-7">
+          <div class="contact__form">
+            <p>If you are interested in purchasing an artwork, commissioning a custom piece, or collaborating on a project, please get in touch!</p>
+            <form class="contact_form" method="POST" id="form">
+
+              <input type="hidden" name="access_key" value="13a1f9f7-7c0b-47f6-92dc-15c739bedb7e">
+
+              <div class="form-group">
+                <label class="form-label" for="name">Your name</label>
+                <input class="form-input" type="text" id="cf_name" placeholder="Name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email address</label>
+                <input class="form-input" type="text" id="cf_email" placeholder="Email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">How can I help you?</label>
+                <textarea class="form-input" id="cf_contactMessage" placeholder="Message" rows="5" name="message" required></textarea>
+              </div>
+              <div class="h-captcha" data-captcha="true"></div>
+              <button type="submit" class="btn btn-large contact__btn float-right">Contact Ben</button>
+              <div id="result"></div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-	</section>
+  </div>
 
-  <!-- Contact Form -->
-	<section class="" id="contact">
-    <div class="columns">
-      <div class="column col-6 col-xs-12 contact">
-        <h3>Let's chat!</h3>
-        <p>Please drop me a line if you are interested in purchasing an artwork, to discuss a commission or collaboration, or if you have any questions.</p>
+  <section class="columns show-sm contact__mobile" id="contact">
+    <div class="column col-12">
+      <div class="stdPad">
+        <p>If you are interested in purchasing an artwork, would liked to discuss commissioning a custom piece, or if you think we should collaborate on a project, let's talk!</p>
         <form class="contact_form" method="POST" id="form">
 
           <input type="hidden" name="access_key" value="13a1f9f7-7c0b-47f6-92dc-15c739bedb7e">
@@ -81,66 +117,69 @@
             <textarea class="form-input" id="cf_contactMessage" placeholder="Message" rows="5" name="message" required></textarea>
           </div>
           <div class="h-captcha" data-captcha="true"></div>
-          <button type="submit">Send to Ben</button>
+          <button type="submit" class="btn btn-large contact__btn">Contact Ben</button>
           <div id="result"></div>
         </form>
       </div>
-      <div class="column col-6 col-xs-12">
-        <img src="images/2022_babylon-wall.png" alt="Wall installation of faux plants, natural materials, and stainless steel wire cloth. 'Babylon' by Ben Rossi, 2022." class="img-responsive"/>
-	<span class="label">Babylon. Wall installation, 2022.</span>
-      </div>
     </div>
-	</section>
+  </section>
 
-  <!-- Footer -->
-  <footer class="main">
-    <div class="columns">
-      <div class="column copyright">
-        &copy; 2018&ndash;2023 Ben Rossi. All rights reserved.
+    <!-- Footer -->
+    <footer>
+      <div class="columns">
+        <div class="column col-6 col-sm-12 social stdPad">
+          Follow me on Instagram <a href="https://www.instagram.com/element29.art/">@element29.art</a>
+        </div>
+        <div class="column col-6 col-sm-12 copyright stdPad">
+          &copy; 2018&ndash;2023 Ben Rossi. All rights reserved.
+        </div>
       </div>
-    </div>
-  </footer>
-  <script defer data-domain="element29.art" src="https://plausible.io/js/script.js"></script>
-  <script>
-    // Contact Form Submission
-    const form = document.getElementById('form');
-    const result = document.getElementById('result');
+    </footer>
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
-      result.innerHTML = "Please wait..."
+    <!-- SCRIPTS -->
+    <script defer data-domain="element29.art" src="https://plausible.io/js/script.js"></script>
 
-        fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    result.innerHTML = json.message;
-                } else {
-                    console.log(response);
-                    result.innerHTML = json.message;
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                result.innerHTML = "Something went wrong!";
-            })
-            .then(function() {
-                form.reset();
-                setTimeout(() => {
-                    result.style.display = "none";
-                }, 10000);
-            });
-    });
-  </script>
+    <script>
+      // Contact Form Submission
+      const form = document.getElementById('form');
+      const result = document.getElementById('result');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        result.innerHTML = "Please wait..."
+
+          fetch('https://api.web3forms.com/submit', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json'
+                  },
+                  body: json
+              })
+              .then(async (response) => {
+                  let json = await response.json();
+                  if (response.status == 200) {
+                      result.innerHTML = json.message;
+                  } else {
+                      console.log(response);
+                      result.innerHTML = json.message;
+                  }
+              })
+              .catch(error => {
+                  console.log(error);
+                  result.innerHTML = "Something went wrong!";
+              })
+              .then(function() {
+                  form.reset();
+                  setTimeout(() => {
+                      result.style.display = "none";
+                  }, 10000);
+              });
+      });
+    </script>
+
 </body>
 </html>

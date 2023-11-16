@@ -9,37 +9,138 @@
 	<link rel="stylesheet" href="styles/spectre.css">
   <link rel="stylesheet" href="styles/e29.css">
 </head>
-<body class="text-center">
-  <header class="e29nav">
-    <div class="columns">
-      <div class="column e29_wordmark">
-        <h1 class="">Element 29</h1>
-        <h2><span>Fine & functional art by Ben Rossi<span></h2>
-      </div>
-    </div>
-    <div class="columns">
-      <div class="column">&nbsp;</div>
-      <div class="column col-auto">
-        <a href="index.html" class="btn btn-link">Home</a>
-        <a href="#" class="btn btn-link">Artwork</a>
-        <a href="index.html#contact" class="btn btn-link">Contact</a>
-      </div>
-      <div class="column">&nbsp;</div>
-    </div>
+<body class="container grid-xl">
+
+  <header class="navbar">
+    <section class="brandBlock">
+      <h2>Element 29.</h2>
+      <h1 class="flame-text">Fine & Functional Art by Ben Rossi</h1>
+    </section>
+    <section class="navbar-section menu__links hide-sm">
+      <a href="artwork.html" class="btn btn-link">Artwork</a>
+      <a href="#contact_modal" class="btn btn-link">Contact</a>
+    </section>
   </header>
 
-  <section class="galleryEmbed">
-    <iframe src='https://www.artgalleria.com/folio?p=57ef7024-d0ae-4798-a96a-0a545cafa0e3' frameBorder='0' width='100%' height='1200'></iframe>
-  </section>
 
-  <!-- Footer -->
-  <footer class="main">
-    <div class="columns">
-      <div class="column copyright">
-        &copy; 2018&ndash;2023 Ben Rossi. All rights reserved.
+
+  <section class="columns">
+    <div class="column col-6 col-md-12">
+      <div class="stdPad">
+        <p class="contact_note">If you are interested in purchasing an artwork, would liked to discuss commissioning a custom piece, or if you think we should collaborate on a project, <a href="#contact_modal">send me a note!</a></p>
       </div>
     </div>
-  </footer>
-  <script defer data-domain="element29.art" src="https://plausible.io/js/script.js"></script>
+    <div class="column col-6 col-md-12">
+      <p>TODO: INCLUDE DETAILS ABOUT HOW ARTWORK IS SHIPPED</p>
+    </div>
+  </section>
+
+  <section class="galleryEmbed">
+    <iframe src='https://www.artgalleria.com/folio?p=57ef7024-d0ae-4798-a96a-0a545cafa0e3' frameBorder='0' width='100%' height='800'></iframe>
+  </section>
+
+  <div id="contact_modal" class="">
+    <div class="modal__window">
+      <div class="modal__header">
+        <h2>Contact</h2>
+        <a class="modal__close" href="#">CLOSE</a>
+      </div>
+      <div class="columns">
+        <div class="column col-4 contactDetails">
+          <div class="contactDetails__separator">
+            <h5>BEN ROSSI</h5>
+            <p>
+              Northern Virginia, U.S.A.<br/>
+              Email: ben@element29.co<br/>
+              Instagram: @element29.art
+            </p>
+          </div>
+        </div>
+        <div class="column col-7">
+          <div class="contact__form">
+            <p>If you are interested in purchasing an artwork, commissioning a custom piece, or collaborating on a project, please get in touch!</p>
+            <form class="contact_form" method="POST" id="form">
+
+              <input type="hidden" name="access_key" value="13a1f9f7-7c0b-47f6-92dc-15c739bedb7e">
+
+              <div class="form-group">
+                <label class="form-label" for="name">Your name</label>
+                <input class="form-input" type="text" id="cf_name" placeholder="Name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email address</label>
+                <input class="form-input" type="text" id="cf_email" placeholder="Email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">How can I help you?</label>
+                <textarea class="form-input" id="cf_contactMessage" placeholder="Message" rows="5" name="message" required></textarea>
+              </div>
+              <div class="h-captcha" data-captcha="true"></div>
+              <button type="submit" class="btn btn-large contact__btn float-right">Contact Ben</button>
+              <div id="result"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="columns">
+        <div class="column col-6 col-sm-12 social stdPad">
+          Follow me on Instagram <a href="https://www.instagram.com/element29.art/">@element29.art</a>
+        </div>
+        <div class="column col-6 col-sm-12 copyright stdPad">
+          &copy; 2018&ndash;2023 Ben Rossi. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script defer data-domain="element29.art" src="https://plausible.io/js/script.js"></script>
+
+    <script>
+      // Contact Form Submission
+      const form = document.getElementById('form');
+      const result = document.getElementById('result');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        result.innerHTML = "Please wait..."
+
+          fetch('https://api.web3forms.com/submit', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json'
+                  },
+                  body: json
+              })
+              .then(async (response) => {
+                  let json = await response.json();
+                  if (response.status == 200) {
+                      result.innerHTML = json.message;
+                  } else {
+                      console.log(response);
+                      result.innerHTML = json.message;
+                  }
+              })
+              .catch(error => {
+                  console.log(error);
+                  result.innerHTML = "Something went wrong!";
+              })
+              .then(function() {
+                  form.reset();
+                  setTimeout(() => {
+                      result.style.display = "none";
+                  }, 10000);
+              });
+      });
+    </script>
+
 </body>
 </html>
