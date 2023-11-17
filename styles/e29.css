@@ -278,6 +278,9 @@ a.e29Btn:active, .contact__btn:active {
     padding: 2em 0 0em 0;
     margin-bottom: 2em;
   }
+  .carousel #fadeContainer {
+    min-height: 200px;
+  }
   .contact__mobile {
     margin-top: 2em;
     margin-bottom: 2em;
