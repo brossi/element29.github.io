@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Element 29 | Fine & Functional Art by Ben Rossi</title>
+	<title>Element 29 | Fine & Functional Art by Ben Rossi - Artwork</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<link rel="stylesheet" href="styles/spectre.css">
@@ -12,9 +12,9 @@
 <body class="container grid-xl">
 
   <header class="navbar">
-    <section class="brandBlock">
+    <section class="brandBlock" id="home" onclick="location.href='index.html';">
       <h2>Element 29.</h2>
-      <h1 class="flame-text">Fine & Functional Art by Ben Rossi</h1>
+      <h1>Fine & Functional Art by Ben Rossi</h1>
     </section>
     <section class="navbar-section menu__links hide-sm">
       <a href="artwork.html" class="btn btn-link">Artwork</a>
@@ -22,21 +22,14 @@
     </section>
   </header>
 
-
-
-  <section class="columns">
-    <div class="column col-6 col-md-12">
-      <div class="stdPad">
-        <p class="contact_note">If you are interested in purchasing an artwork, would liked to discuss commissioning a custom piece, or if you think we should collaborate on a project, <a href="#contact_modal">send me a note!</a></p>
-      </div>
-    </div>
-    <div class="column col-6 col-md-12">
-      <p>TODO: INCLUDE DETAILS ABOUT HOW ARTWORK IS SHIPPED</p>
-    </div>
-  </section>
-
-  <section class="galleryEmbed">
-    <iframe src='https://www.artgalleria.com/folio?p=57ef7024-d0ae-4798-a96a-0a545cafa0e3' frameBorder='0' width='100%' height='800'></iframe>
+  <section class="galleryEmbed" style="height: auto; overflow: visible;">
+    <iframe
+      src='https://www.artgalleria.com/folio?p=57ef7024-d0ae-4798-a96a-0a545cafa0e3'
+      height="1200"
+      width="100%"
+      frameborder="0"
+      seamless;
+    ></iframe>
   </section>
 
   <div id="contact_modal" class="">
@@ -46,19 +39,20 @@
         <a class="modal__close" href="#">CLOSE</a>
       </div>
       <div class="columns">
-        <div class="column col-4 contactDetails">
+        <div class="column col-5 contactDetails">
           <div class="contactDetails__separator">
             <h5>BEN ROSSI</h5>
             <p>
               Northern Virginia, U.S.A.<br/>
-              Email: ben@element29.co<br/>
-              Instagram: @element29.art
+              <br/>
+              Instagram: <a href="https://www.instagram.com/element29.art/" target="_blank">@element29.art</a><br/>
+              LinkedIn: <a href="https://www.linkedin.com/in/benrossi/" target="_blank">/benrossi</a>
             </p>
           </div>
         </div>
-        <div class="column col-7">
+        <div class="column col-6">
           <div class="contact__form">
-            <p>If you are interested in purchasing an artwork, commissioning a custom piece, or collaborating on a project, please get in touch!</p>
+            <p>My work is available for purchase, and I am available for commissions and collaborations. Please use the form below to send me a note if you are interested in learning more.</p>
             <form class="contact_form" method="POST" id="form">
 
               <input type="hidden" name="access_key" value="13a1f9f7-7c0b-47f6-92dc-15c739bedb7e">
@@ -85,62 +79,62 @@
     </div>
   </div>
 
-    <!-- Footer -->
-    <footer>
-      <div class="columns">
-        <div class="column col-6 col-sm-12 social stdPad">
-          Follow me on Instagram <a href="https://www.instagram.com/element29.art/">@element29.art</a>
-        </div>
-        <div class="column col-6 col-sm-12 copyright stdPad">
-          &copy; 2018&ndash;2023 Ben Rossi. All rights reserved.
-        </div>
+  <!-- Footer -->
+  <footer>
+    <div class="columns">
+      <div class="column col-6 col-sm-12 social stdPad">
+        Follow me on Instagram <a href="https://www.instagram.com/element29.art/">@element29.art</a>
       </div>
-    </footer>
+      <div class="column col-6 col-sm-12 copyright stdPad">
+        &copy; 2018&ndash;2023 Ben Rossi. All rights reserved.
+      </div>
+    </div>
+  </footer>
 
-    <!-- SCRIPTS -->
-    <script defer data-domain="element29.art" src="https://plausible.io/js/script.js"></script>
+  <!-- SCRIPTS -->
+  <script defer data-domain="element29.art" src="https://plausible.io/js/script.js"></script>
 
-    <script>
-      // Contact Form Submission
-      const form = document.getElementById('form');
-      const result = document.getElementById('result');
+  <script>
+    // Contact Form Submission
+    const form = document.getElementById('form');
+    const result = document.getElementById('result');
 
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-        result.innerHTML = "Please wait..."
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+      result.innerHTML = "Please wait..."
 
-          fetch('https://api.web3forms.com/submit', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                      'Accept': 'application/json'
-                  },
-                  body: json
-              })
-              .then(async (response) => {
-                  let json = await response.json();
-                  if (response.status == 200) {
-                      result.innerHTML = json.message;
-                  } else {
-                      console.log(response);
-                      result.innerHTML = json.message;
-                  }
-              })
-              .catch(error => {
-                  console.log(error);
-                  result.innerHTML = "Something went wrong!";
-              })
-              .then(function() {
-                  form.reset();
-                  setTimeout(() => {
-                      result.style.display = "none";
-                  }, 10000);
-              });
-      });
-    </script>
+        fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = json.message;
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+            })
+            .then(function() {
+                form.reset();
+                setTimeout(() => {
+                    result.style.display = "none";
+                }, 10000);
+            });
+    });
+  </script>
 
 </body>
 </html>

@@ -12,9 +12,9 @@
 <body class="container grid-xl">
 
   <header class="navbar">
-    <section class="brandBlock">
+    <section class="brandBlock" id="home" onclick="location.href='index.html';">
       <h2>Element 29.</h2>
-      <h1 class="flame-text">Fine & Functional Art by Ben Rossi</h1>
+      <h1>Fine & Functional Art by Ben Rossi</h1>
     </section>
     <section class="navbar-section menu__links hide-sm">
       <a href="artwork.html" class="btn btn-link">Artwork</a>
@@ -23,31 +23,30 @@
   </header>
 
   <div class="carousel">
-    <div class="fadein">
-        <img src="images/2023_cosmic-hero.jpg" class="img-responsive"/>
-        <img src="images/2023_molten-hero.jpg" class="img-responsive"/>
-        <img src="images/2022_babylon-wall-hero.jpg" class="img-responsive"/>
-        <img src="images/2010s-untitiled_canvas-hero.jpg" class="img-responsive"/>
-        <img src="images/2023_stretching-hero.jpg" class="img-responsive"/>
-        <img src="images/2023_magick-hero.jpg" class="img-responsive"/>
+    <div class="fadein" id="fadeContainer">
+        <img src="images/2023_cosmic-hero.jpg" class="cImg img-responsive"/>
+        <img src="images/2023_molten-hero.jpg" class="cImg img-responsive"/>
+        <img src="images/2022_babylon-wall-hero.jpg" class="cImg img-responsive"/>
+        <img src="images/2010s-untitiled_canvas-hero.jpg" class="cImg img-responsive"/>
+        <img src="images/2023_stretching-hero.jpg" class="cImg img-responsive"/>
+        <img src="images/2023_magick-hero.jpg" class="cImg img-responsive"/>
     </div>
   </div>
 
   <section class="columns">
     <div class="column col-6 col-md-12">
       <div class="stdPad">
-        <p>It is fair to say that each piece of my artwork begins with the same question:</p>
+        <p style="margin-bottom:1em;">My creative endevours start with a simple question:</p>
         <h3 class="heroQuestion">&ldquo;What happens if?&rdquo;</h3>
-        <p>I find the question to be an everlasting font of ideas, new techniques, and no small amount of "oh&hellip;that didn't work" movements. It's this question and all of the others that it invites into my brain that keeps me coming back to my studio, day after day.</p>
-        <p>As an interdisciplinary artist based in Northern Virginia, I explore my internal and external worlds through colors, textures, patterns, and phenomena. My paintings, sculptures, instruments, environments, and crafted objects blend natural and synthetic materials and give form to the answers I discover.</p>
-        <button class="btn btn-large galleryCTA"><a href="artwork.html">Explore my artwork</a></button>
-        <div class="mobile__spacer">&nbsp;</div>
-        <p class="contact_note hide-sm">If you are interested in purchasing an artwork, would liked to discuss commissioning a custom piece, or if you think we should collaborate on a project, <a href="#contact_modal">send me a note!</a></p>
+        <p>While only three words, its brevity obscures a profound depth. It is the source of new ideas, fresh techniques, and, many &ldquo;&hellip;well, that didn't quite go as planned&rdquo; experiences. It's the curiosity and the questions it invites that draws me back to my studio, day after day.<p>
+        <p>As an interdisciplinary artist based in Northern Virginia, my work is an exploration of the external world and my inner self. The paintings, sculptures, instruments, and objects I fabricate weave together natural and synthetic elements. It is in these fusions where I give form to answers I discover.<p>
+        <p class="contact_note hide-sm">My work is available for purchase, and I am available for commissions and collaborations. Please <a href="#contact_modal" class="underline">contact me</a> if you are interested in learning more.</p>
+        <p><a href="artwork.html" class="btn btn-large e29Btn">Explore my artwork</a></p>
       </div>
     </div>
     <div class="column col-6 col-md-12">
-      <img src="/images/event_solo.jpg" alt="Ben at the Merrymaker's Marketplace, October 2023. Photo by " class="img-responsive" />
-      <img src="/images/event_magick-overhead.jpg" alt="Overhead view of three painted concrete mushrooms from Ben's &ldquo;Magick&rdquo; series. 2023" class="img-responsive tablet_img">
+      <img src="/images/event_solo.jpg" alt="Ben at the Merrymaker's Marketplace, October 2023. Photo by Sarah Schmidt (https://www.sarahschmidtphoto.com/)" class="img-responsive" />
+      <img src="/images/event_magick-overhead.jpg" alt="Overhead view of three painted concrete mushrooms from Ben's &ldquo;Magick&rdquo; series. 2023. Photo by Sarah Schmidt (https://www.sarahschmidtphoto.com/)" class="img-responsive tablet_img">
   </section>
 
   <div id="contact_modal" class="">
@@ -57,19 +56,20 @@
         <a class="modal__close" href="#">CLOSE</a>
       </div>
       <div class="columns">
-        <div class="column col-4 contactDetails">
+        <div class="column col-5 contactDetails">
           <div class="contactDetails__separator">
             <h5>BEN ROSSI</h5>
             <p>
               Northern Virginia, U.S.A.<br/>
-              Email: ben@element29.co<br/>
-              Instagram: @element29.art
+              <br/>
+              Instagram: <a href="https://www.instagram.com/element29.art/" target="_blank">@element29.art</a><br/>
+              LinkedIn: <a href="https://www.linkedin.com/in/benrossi/" target="_blank">/benrossi</a>
             </p>
           </div>
         </div>
-        <div class="column col-7">
+        <div class="column col-6">
           <div class="contact__form">
-            <p>If you are interested in purchasing an artwork, commissioning a custom piece, or collaborating on a project, please get in touch!</p>
+            <p>My work is available for purchase, and I am available for commissions and collaborations. Please use the form below to send me a note if you are interested in learning more.</p>
             <form class="contact_form" method="POST" id="form">
 
               <input type="hidden" name="access_key" value="13a1f9f7-7c0b-47f6-92dc-15c739bedb7e">
@@ -99,7 +99,7 @@
   <section class="columns show-sm contact__mobile" id="contact">
     <div class="column col-12">
       <div class="stdPad">
-        <p>If you are interested in purchasing an artwork, would liked to discuss commissioning a custom piece, or if you think we should collaborate on a project, let's talk!</p>
+        <p>My work is available for purchase, and I am available for commissions and collaborations. Please use the form below to send me a note if you are interested in learning more.</p>
         <form class="contact_form" method="POST" id="form">
 
           <input type="hidden" name="access_key" value="13a1f9f7-7c0b-47f6-92dc-15c739bedb7e">
@@ -138,6 +138,33 @@
 
     <!-- SCRIPTS -->
     <script defer data-domain="element29.art" src="https://plausible.io/js/script.js"></script>
+
+    <script>
+      // ADJUST CAROUSEL HEIGHT TO MAINTAIN PROPER ELEMENT SPACING
+      function updateMaxHeight() {
+        // Select the image elements that match the class
+        var carouselImgs = document.getElementsByClassName('cImg');
+        // take the first image to use as the reference instance
+        var img = carouselImgs[0];
+
+        // Get the height of the image
+        var height = img.offsetHeight;
+
+        // Select the stylesheet and the CSS class
+        var carousel = document.getElementById('fadeContainer');
+        carousel.style.maxHeight = `${height}px`;
+        carousel.style.height = `${height}px`;
+
+        //DEBUG
+        //console.log('Max-Height: ' + carousel.style.maxHeight + 'px, Height: ' + carousel.style.height + 'px');
+      }
+
+      // Call the function initially
+      updateMaxHeight();
+
+      // Call the function whenever the window is resized
+      window.addEventListener('resize', updateMaxHeight);
+    </script>
 
     <script>
       // Contact Form Submission
