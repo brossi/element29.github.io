@@ -98,6 +98,7 @@ a.underline {
 /* Carousel styles */
 .carousel {
   padding: 2em 0 1em;
+  max-height: 688px;
 }
 
 .fadein {
