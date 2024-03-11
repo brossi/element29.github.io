@@ -165,7 +165,9 @@
       }
 
       // Call the function initially
-      updateMaxHeight();
+      document.addEventListener("DOMContentLoaded", () => {
+  	updateMaxHeight();
+      });
 
       // Call the function whenever the window is resized
       window.addEventListener('resize', updateMaxHeight);
