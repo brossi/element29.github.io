@@ -98,6 +98,7 @@ a.underline {
 /* Carousel styles */
 .carousel {
   padding: 2em 0 1em;
+  height: 688px;
   max-height: 688px;
 }
 
@@ -249,6 +250,24 @@ a.e29Btn:hover, .contact__btn:hover {
 }
 a.e29Btn:active, .contact__btn:active {
   opacity: 0.5;
+}
+
+.aboutContent {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.aboutContent h3 {
+  padding-top: 32px;
+}
+.aboutContent blockquote {
+  font-style: italic;
+  padding: 1em 1em 0 1em;
+}
+
+.sidebarTexture {
+  background-image: url("../images/about_sidebar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* MEDIA QUERIES */

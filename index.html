@@ -11,6 +11,36 @@
   <link rel="manifest" href="/site.webmanifest">
 	<link rel="stylesheet" href="styles/spectre.css">
   <link rel="stylesheet" href="styles/e29.css">
+
+  <script>
+    // ADJUST CAROUSEL HEIGHT TO MAINTAIN PROPER ELEMENT SPACING
+    function updateMaxHeight() {
+      // Select the image elements that match the class
+      var carouselImgs = document.getElementsByClassName('cImg');
+      // take the first image to use as the reference instance
+      var img = carouselImgs[0];
+
+      // Get the height of the image
+      var height = img.offsetHeight;
+
+      // Select the stylesheet and the CSS class
+      var carousel = document.getElementById('fadeContainer');
+      carousel.style.maxHeight = `${height}px`;
+      carousel.style.height = `${height}px`;
+
+      //DEBUG
+      //console.log('Max-Height: ' + carousel.style.maxHeight + 'px, Height: ' + carousel.style.height + 'px');
+    }
+
+    // Call the function initially
+    document.addEventListener("DOMContentLoaded", () => {
+  updateMaxHeight();
+    });
+
+    // Call the function whenever the window is resized
+    window.addEventListener('resize', updateMaxHeight);
+  </script>
+
 </head>
 <body class="container grid-xl">
 
@@ -21,6 +51,7 @@
     </section>
     <section class="navbar-section menu__links hide-sm">
       <a href="artwork.html" class="btn btn-link">Artwork</a>
+      <a href="about.html" class="btn btn-link">About Ben</a>
       <a href="#contact_modal" class="btn btn-link">Contact</a>
     </section>
   </header>
@@ -44,6 +75,7 @@
         <p style="margin-bottom:1em;">My creative endeavors start with a simple question:</p>
         <h3 class="heroQuestion">&ldquo;What happens if?&rdquo;</h3>
         <p>While only three words, its brevity obscures a profound depth. It is the source of new ideas, fresh techniques, and many &ldquo;&hellip;well, that didn't quite go as planned&rdquo; experiences. It's the curiosity and the questions it invites that draws me back to my studio, day after day.<p>
+        <p><a href="about.html" class="btn btn-large e29Btn show-sm">Learn more about Ben</a></p>
         <p>As an interdisciplinary artist based in Northern Virginia, my work is an exploration of the external world and my inner self. The paintings, sculptures, instruments, and objects I fabricate weave together natural and synthetic elements. It is in these fusions where I give form to answers I discover.<p>
         <p class="contact_note hide-sm">My work is available for purchase, and I am available for commissions and collaborations. Please <a href="#contact_modal" class="underline">contact me</a> if you are interested in learning more.</p>
         <p><a href="artwork.html" class="btn btn-large e29Btn">Explore my artwork</a></p>
@@ -53,8 +85,8 @@
       <img src="/images/event_solo.jpg" alt="Ben at the Merrymaker's Marketplace, October 2023. Photo by Sarah Schmidt (https://www.sarahschmidtphoto.com/)" class="img-responsive" />
       <img src="/images/event_magick-overhead.jpg" alt="Overhead view of three painted concrete mushrooms from Ben's &ldquo;Magick&rdquo; series. 2023. Photo by Sarah Schmidt (https://www.sarahschmidtphoto.com/)" class="img-responsive tablet_img">
   </section>
-  </div>	  
-	  
+  </div>
+
 
   <div id="contact_modal" class="">
     <div class="modal__window">
@@ -147,35 +179,6 @@
     <script defer data-domain="element29.art" src="https://plausible.io/js/script.js"></script>
 
     <script>
-      // ADJUST CAROUSEL HEIGHT TO MAINTAIN PROPER ELEMENT SPACING
-      function updateMaxHeight() {
-        // Select the image elements that match the class
-        var carouselImgs = document.getElementsByClassName('cImg');
-        // take the first image to use as the reference instance
-        var img = carouselImgs[0];
-
-        // Get the height of the image
-        var height = img.offsetHeight;
-
-        // Select the stylesheet and the CSS class
-        var carousel = document.getElementById('fadeContainer');
-        carousel.style.maxHeight = `${height}px`;
-        carousel.style.height = `${height}px`;
-
-        //DEBUG
-        //console.log('Max-Height: ' + carousel.style.maxHeight + 'px, Height: ' + carousel.style.height + 'px');
-      }
-
-      // Call the function initially
-      document.addEventListener("DOMContentLoaded", () => {
-  	updateMaxHeight();
-      });
-
-      // Call the function whenever the window is resized
-      window.addEventListener('resize', updateMaxHeight);
-    </script>
-
-    <script>
       // Contact Form Submission
       const form = document.getElementById('form');
       const result = document.getElementById('result');
@@ -216,6 +219,7 @@
               });
       });
     </script>
+
 
 </body>
 </html>

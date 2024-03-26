@@ -109,7 +109,8 @@ a.underline {
 
 /* Carousel styles */
 @mixin fade($num:1, $fade:1, $visible:2) {
-  $a: 100 / (($fade + $visible) * $num);
+
+  $a: calc(100 / (($fade + $visible) * $num));
   @keyframes fade {
    0%   { opacity: 0; }
    #{$a * $fade}%   { opacity: 1; }
@@ -131,6 +132,7 @@ a.underline {
 
 .carousel {
   padding: 2em 0 1em;
+  height: 688px;
   max-height: 688px;
 }
 .fadein {
@@ -245,6 +247,23 @@ a.e29Btn, .contact__btn {
   }
 }
 
+.aboutContent {
+  padding-left: 2em;
+  padding-right: 2em;
+  h3 {
+    padding-top: 32px;
+  }
+  blockquote {
+    font-style: italic;
+    padding: 1em 1em 0 1em;
+  }
+}
+
+.sidebarTexture {
+  background-image: url("../images/about_sidebar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /* MEDIA QUERIES */
 
